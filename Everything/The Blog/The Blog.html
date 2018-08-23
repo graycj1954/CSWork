@@ -3,13 +3,13 @@
         <script>window.alert("Are " + "you " + "ready?")</script>
         <style>
             h2 {
-                background-color: crimson;
-                color: black;
+                background-color: black;
+                color: crimson;
                 text-align: center;
                 border-style: ridge;
             }
             body {
-                background: #ffffff url("paperbg.jpg");
+                background-image: url("paperbg.jpg");
                 color: black;
                 text-align: center;
             }
@@ -18,8 +18,32 @@
                 border-style: dashed;
                 border-color: red;
             }
+          ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111111;
+    border-style: groove;
+}
+
+li.nav {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #ffe866;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #333333;
+}
             </style>
-        <title>First Week of School</title>
+        <title>The Blog</title>
     </head>
     <body>
         <div id="line1">
@@ -27,11 +51,17 @@
                 Say Hello</button>
         </div>
     <h1 style="background-color:black;text-align:center;color:cornflowerblue;border-style:outset">
-        First Week of School
+        Welcome to the Blog.
     </h1>
+      <ul class="nav">
+        <li class="nav"><a href="#home">About Me</a></li>
+        <li class="nav"><a href="#news">News</a></li>
+        <li class="nav"><a href="#contact">Contact</a></li>
+        <li class="nav"><a href="#about">About</a></li>
+      </ul>
     <h2>Thursday, August 9, 2018</h2>
         <p>
-            Well. This is the first week of school. School has been alright so far. Here's what it's looked like:
+            School has been alright so far. Here's what it's looked like:
             <ol>
                 <li>School</li>
                 <li>Band</li>
@@ -45,7 +75,7 @@
         <button id="yt" onclick="pageSubscribe()">Subscribe!</button>
         <br/>
         <a href="https://twitter.com/caleb_gray19?lang=en" target="_blank">
-            <img src="shawn.JPG" alt="A Legend" style= "width:50px;height:50px;"></img>
+          <img src="shawn.JPG" alt="A Legend" style= "width:50px;height:50px;"></img>
         </a>
     <br/>
     <hr/>
@@ -56,14 +86,14 @@
         </p>
         <button id="yt" onclick="pageSubscribe()">Subscribe!</button>
         <br/>
-        <a href="https://twitter.com/caleb_gray19?lang=en" target="_blank">
-            <img src="shawn.JPG" alt="A Legend" style= "width:50px;height:50px;"></img>
-        </a>
+      <a href="https://twitter.com/caleb_gray19?lang=en" target="_blank">
+        <img src="shawn.JPG" alt="A Legend" style= "width:50px;height:50px;"></img>
+      </a>
     <br/>
     <hr/>
     <button onclick="changeBG()">Click to Change Color</button>
     <button onclick="changeTextColor()">Change Text Color</button>
     <button onClick="changeButtonColor()">Change Button Color</button>
-        <script src="index.js"></script>
+        <script src="The Blog.js"></script>
 </body>
 </html>
