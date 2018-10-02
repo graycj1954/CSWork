@@ -1,4 +1,4 @@
-<canvas id = "gameZone" width = "400" height="400"></canvas>
+<canvas id = "gameZone" width = "1800" height="800"></canvas>
 <script>
 window.onload = function()
 {
@@ -15,7 +15,8 @@ var snakeX = 10;
 var snakeY = 10;
 
 var gridSize = 20;
-var tileCount = 20;
+var tileY = 40;
+var tileX = 90;
 
 var appleX = 15;
 var appleY = 15;
@@ -30,17 +31,17 @@ snakeY += yVelocity;
 
 if (snakeX < 0)
 {
-snakeX = tileCount - 1;
+snakeX = tileX - 1;
 }
-if (snakeX > tileCount - 1)
+if (snakeX > tileX - 1)
 {
 snakeX = 0;
 }
 if (snakeY < 0)
 {
-snakeY = tileCount -1;
+snakeY = tileY -1;
 }
-if (snakeY > tileCount -1)
+if (snakeY > tileY -1)
 {
 snakeY = 0;
 }
@@ -52,7 +53,7 @@ ctx.fillStyle = "red";
 ctx.fillRect(appleX*gridSize, appleY * gridSize, gridSize - 2, 
 gridSize -2);
 
-ctx.fillStyle = "lime";
+ctx.fillStyle = "white";
 for (var i = 0; i < trail.length; i++)
 {
 ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, 
@@ -72,8 +73,8 @@ trail.shift();
 if (appleX == snakeX && appleY == snakeY)
 {
 tail++;
-appleX = Math.floor(Math.random() * tileCount);
-appleY = Math.floor(Math.random() * tileCount);
+appleX = Math.floor(Math.random() * tileX);
+appleY = Math.floor(Math.random() * tileY);
 
 }
 
