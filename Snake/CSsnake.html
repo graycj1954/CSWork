@@ -1,0 +1,104 @@
+<canvas id = "gameZone" width = "400" height="400"></canvas>
+<script>
+window.onload = function()
+{
+can = document.getElementById("gameZone");
+ctx = can.getContext("2d");
+document.addEventListener("keydown", keyPush);
+setInterval(gameLoop, 1000/15);
+}
+
+var xVelocity = 0;
+var yVelocity = 0;
+
+var snakeX = 10;
+var snakeY = 10;
+
+var gridSize = 20;
+var tileCount = 20;
+
+var appleX = 15;
+var appleY = 15;
+
+var trail = [];
+var tail = 5;
+
+function gameLoop()
+{
+snakeX += xVelocity;
+snakeY += yVelocity;
+
+if (snakeX < 0)
+{
+snakeX = tileCount - 1;
+}
+if (snakeX > tileCount - 1)
+{
+snakeX = 0;
+}
+if (snakeY < 0)
+{
+snakeY = tileCount -1;
+}
+if (snakeY > tileCount -1)
+{
+snakeY = 0;
+}
+
+ctx.fillStyle = "black";
+ctx.fillRect(0, 0, can.width, can.height);
+
+ctx.fillStyle = "red";
+ctx.fillRect(appleX*gridSize, appleY * gridSize, gridSize - 2, 
+gridSize -2);
+
+ctx.fillStyle = "lime";
+for (var i = 0; i < trail.length; i++)
+{
+ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, 
+gridSize - 2, gridSize -2);
+if (trail[i].x == snakeX && trail[i].y == snakeY)
+{
+tail = 5;
+}
+}	
+
+trail.push({x:snakeX, y:snakeY});
+while (trail.length > tail)
+{
+trail.shift();
+}
+
+if (appleX == snakeX && appleY == snakeY)
+{
+tail++;
+appleX = Math.floor(Math.random() * tileCount);
+appleY = Math.floor(Math.random() * tileCount);
+
+}
+
+}
+function keyPush(evt) 
+{
+switch(evt.keyCode)
+{
+case 37:
+xVelocity = -1;
+yVelocity = 0;
+break;
+case 38:
+xVelocity = 0;
+yVelocity = -1;
+break;
+case 39:
+xVelocity = 1;
+yVelocity = 0;
+break;
+case 40:
+xVelocity = 0;
+yVelocity = 1;
+break;
+}
+}
+
+</script>
