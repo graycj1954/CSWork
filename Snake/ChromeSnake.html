@@ -5,7 +5,7 @@ window.onload = function()
 can = document.getElementById("gameZone");
 ctx = can.getContext("2d");
 document.addEventListener("keydown", keyPush);
-setInterval(gameLoop, 1000/15);
+setInterval(gameLoop, 1000/20);
 }
 
 var xVelocity = 0;
@@ -15,7 +15,7 @@ var snakeX = 10;
 var snakeY = 10;
 
 var gridSize = 20;
-var tileY = 35;
+var tileY = 32;
 var tileX = 65;
 
 var appleX = 15;

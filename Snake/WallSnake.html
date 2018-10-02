@@ -5,7 +5,7 @@ window.onload = function()
 can = document.getElementById("gameZone");
 ctx = can.getContext("2d");
 document.addEventListener("keydown", keyPush);
-setInterval(gameLoop, 1000/15);
+setInterval(gameLoop, 1000/20);
 }
 
 var xVelocity = 0;
@@ -15,8 +15,10 @@ var snakeX = 10;
 var snakeY = 10;
 
 var gridSize = 20;
-var tileY = 35;
+var tileY = 32;
 var tileX = 65;
+var appleTileY = 25
+var appleTileX = 60
 
 var appleX = 15;
 var appleY = 15;
@@ -31,37 +33,57 @@ snakeY += yVelocity;
 
 if (snakeX < 0)
 {
-snakeX = tileX - 1;
+  snakeX = Math.floor(Math.random() * tileX);
+  snakeY = Math.floor(Math.random() * tileY);
+  xVelocity = 0;
+  yVelocity = 0;
+  appleX = Math.floor(Math.random() * appleTileX);
+  appleY = Math.floor(Math.random() * appleTileY);
 }
 if (snakeX > tileX - 1)
 {
-snakeX = 0;
+  snakeX = Math.floor(Math.random() * tileX);
+  snakeY = Math.floor(Math.random() * tileY);
+  xVelocity = 0;
+  yVelocity = 0;
+  appleX = Math.floor(Math.random() * appleTileX);
+  appleY = Math.floor(Math.random() * appleTileY);
 }
 if (snakeY < 0)
 {
-snakeY = tileY -1;
+  snakeX = Math.floor(Math.random() * tileX);
+  snakeY = Math.floor(Math.random() * tileY);
+  xVelocity = 0;
+  yVelocity = 0;
+  appleX = Math.floor(Math.random() * appleTileX);
+  appleY = Math.floor(Math.random() * appleTileY);
 }
 if (snakeY > tileY -1)
 {
-snakeY = 0;
+  snakeX = Math.floor(Math.random() * tileX);
+  snakeY = Math.floor(Math.random() * tileY);
+  xVelocity = 0;
+  yVelocity = 0;
+  appleX = Math.floor(Math.random() * appleTileX);
+  appleY = Math.floor(Math.random() * appleTileY);
 }
 
-ctx.fillStyle = "white";
+ctx.fillStyle = "gray";
 ctx.fillRect(0, 0, can.width, can.height);
 
 ctx.fillStyle = "red";
 ctx.fillRect(appleX*gridSize, appleY * gridSize, gridSize - 2, 
 gridSize -2);
 
-ctx.fillStyle = "blue";
+ctx.fillStyle = "gold";
 for (var i = 0; i < trail.length; i++)
 {
 ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, 
 gridSize - 2, gridSize -2);
 if (trail[i].x == snakeX && trail[i].y == snakeY)
-{
-tail = 5;
-}
+  {
+    tail = 5;
+  }
 }	
 
 trail.push({x:snakeX, y:snakeY});
@@ -73,8 +95,8 @@ trail.shift();
 if (appleX == snakeX && appleY == snakeY)
 {
 tail++;
-appleX = Math.floor(Math.random() * tileX);
-appleY = Math.floor(Math.random() * tileY);
+appleX = Math.floor(Math.random() * appleTileX);
+appleY = Math.floor(Math.random() * appleTileY);
 
 }
 
