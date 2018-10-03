@@ -1,4 +1,4 @@
-<canvas id = "gameZone" width = "1300" height="650"></canvas>
+<canvas id = "gameZone" width = "400" height="400"></canvas>
 <script>
 window.onload = function()
 {
@@ -15,8 +15,8 @@ var snakeX = 10;
 var snakeY = 10;
 
 var gridSize = 20;
-var tileY = 35;
-var tileX = 65;
+var tileY = 20;
+var tileX = 20;
 
 var appleX = 15;
 var appleY = 15;
@@ -46,14 +46,14 @@ if (snakeY > tileY -1)
 snakeY = 0;
 }
 
-ctx.fillStyle = "white";
+ctx.fillStyle = "black";
 ctx.fillRect(0, 0, can.width, can.height);
 
 ctx.fillStyle = "red";
 ctx.fillRect(appleX*gridSize, appleY * gridSize, gridSize - 2, 
 gridSize -2);
 
-ctx.fillStyle = "blue";
+ctx.fillStyle = "lime";
 for (var i = 0; i < trail.length; i++)
 {
 ctx.fillRect(trail[i].x * gridSize, trail[i].y * gridSize, 
